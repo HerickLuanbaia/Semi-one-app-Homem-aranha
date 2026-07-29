@@ -19,7 +19,7 @@ export default function HomeScreen() {
         </Text>
 
         <TouchableOpacity style={s.button}onPress={() => router.push("/explore")}>
-          <Text style={s.buttonText}>Lista de vilões</Text>
+          <Text style={s.buttonText}> Vilões </Text>
         </TouchableOpacity>
       </View>
     </ScrollView>

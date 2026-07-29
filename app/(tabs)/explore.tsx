@@ -1,10 +1,10 @@
-import {StyleSheet,Text,View,ScrollView,Image,} from "react-native";
+import { StyleSheet, Text, View, ScrollView, Image,ImageSourcePropType,} from "react-native";
 
 type Vilao = {
   id: string;
   titulo: string;
   descricao: string;
-  imagem: string;
+imagem: ImageSourcePropType | undefined;
 };
 
 const Viloes: Vilao[] = [
@@ -12,33 +12,30 @@ const Viloes: Vilao[] = [
     id: "1",
     titulo: "Duende Verde",
     descricao: "Um dos maiores inimigos do Homem-Aranha.",
-    imagem:"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhI9qf97ki1Wpq1C7ZZvzSrxc-zNBddW5rOf2_1v_53_mLsEI8gCLqlUrB_6ldR-otlSJ96YsrambCb8xlA9czgMmUoAoZnbHcJQtz8Mgb2pz8gM3uMbNPKZBJqG5QdjvjXBeqAomFMMpgF/s1600/Duende+verde.jpg",
+    imagem: require("../../assets/Duende verde.jpg") // Altere para o nome correto do arquivo
   },
   {
     id: "2",
     titulo: "Venom",
     descricao: "Um simbionte alienígena muito perigoso.",
-    imagem:"https://t.ctcdn.com.br/RlhwYtvaovLqlulzwOeAGBIVy6s=/900x675/smart/i527727.jpeg",
+    imagem: require("../../assets/Venom.jpeg")
   },
   {
     id: "3",
     titulo: "Doutor Octopus",
     descricao: "Um cientista brilhante com braços mecânicos.",
-    imagem:"https://www.boletimnerd.com.br/wp-content/uploads/2025/02/doutor-octopus-nos-quadrinhos.jpg",
+    imagem: require("../../assets/doutor-octopus-nos-quadrinhos.jpg")
   },
 ];
 
 export default function Explore() {
   return (
     <ScrollView style={styles.container}>
-      <Text style={styles.title}>Lista de Vilões</Text>
+      <Text style={styles.title}>Vilões</Text>
 
       {Viloes.map((item) => (
         <View key={item.id} style={styles.card}>
-          <Image
-            source={{ uri: item.imagem }}
-            style={styles.image}
-          />
+          <Image source={item.imagem} style={styles.image} />
 
           <Text style={styles.nome}>{item.titulo}</Text>
           <Text style={styles.desc}>{item.descricao}</Text>
